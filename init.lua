@@ -11,6 +11,7 @@ vim.g.maplocalleader = ","
 keymap("n", "<leader>wri", ":w<CR>", options)
 keymap("n", "<leader>clo", ":close<CR>", options)
 keymap("n", "<leader>coc", ":CocCommand ", options)
+keymap("t", "<C-c>", "<C-\\><C-n>", options)
 
 local globalOptions = {
 	smartcase = true,
