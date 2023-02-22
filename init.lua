@@ -1,17 +1,19 @@
-require("modules")
-require("netrw")
 
 local options = { noremap = true, silent = true }
 
 local keymap = vim.api.nvim_set_keymap
 
-vim.g.mapleader = ","
-vim.g.maplocalleader = ","
+local let = vim.g
 
-keymap("n", "<leader>wri", ":w<CR>", options)
+let.mapleader = ","
+let.maplocalleader = ","
+
+
+keymap("n", "<leader>wri", ":write<CR>", options)
 keymap("n", "<leader>clo", ":close<CR>", options)
-keymap("n", "<leader>coc", ":CocCommand ", options)
-keymap("t", "<C-c>", "<C-\\><C-n>", options)
+keymap("n", "<leader>ter", ":tabnew<CR>:terminal powershell<CR>", options)
+keymap("n", "<leader>onl", ":only<CR>", options)
+keymap("t", "<Esc>", "<C-\\><C-n>", options)
 
 local globalOptions = {
 	smartcase = true,
@@ -51,11 +53,14 @@ for key, valua in pairs(bufferOptions) do
 	vim.bo[key] = valua
 end
 
-local nonLuaNativeOptions = {
-	'colorscheme habamax',
-	'set path+=**',
-}
+require("modules")
+require("netrw")
 
-for index = 1, #nonLuaNativeOptions do
-	vim.cmd(nonLuaNativeOptions[index])
-end
+let.coc_global_extensions = { 'coc-java' ,'coc-html' ,'coc-css' ,'coc-cssmodules' ,'coc-emmet' ,'coc-highlight' ,'coc-stylelintplus' ,'coc-prettier' ,'coc-markdownlint' ,'@yaegassy/coc-tailwindcss3' ,'coc-json' ,'coc-tabnine' ,'coc-pyright' }
+keymap("n", "<leader>coc", ":CocCommand ", options)
+
+vim.cmd([[
+	colorscheme habamax
+	set path+=**
+]])
+
