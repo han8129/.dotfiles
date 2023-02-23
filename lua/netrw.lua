@@ -1,22 +1,12 @@
-local options = { noremap = true, silent = true }
-local keymap = vim.api.nvim_set_keymap
-
 vim.cmd([[
 if &columns < 100
 	" If the screen is small, occupy half
 	let g:netrw_winsize = 50
-els
+else
 	" else take 30%
-	let g:netrw_winsize = 30
+	let g:netrw_winsize = 25
 	endif
 ]])
-
-keymap("", "<Space>", "<Nop>", options)
-
-vim.g.mapleader = ","
-vim.g.localleader = ","
-
-keymap("n", "<leader>ex", ":Lex %:p:h<CR>", options)
 
 local netrwOptions = {
 	netrw_banner = 0,
@@ -29,5 +19,5 @@ local netrwOptions = {
 
 
 for key, valua in pairs(netrwOptions) do
-	vim.g[key] = valua
+	let[key] = valua
 end
