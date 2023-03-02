@@ -20,7 +20,7 @@ local windowOptions = {
 	spell = false,
 	cursorline = true,
 	wrap = false,
-	foldmethod = 'indent',
+	foldmethod = 'manual',
 	foldenable = false,
 }
 
