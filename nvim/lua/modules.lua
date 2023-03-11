@@ -20,4 +20,5 @@ return packer.startup(function(use)
 	use {'catppuccin/nvim', as = 'catppuccin'}
 	use 'navarasu/onedark.nvim'
 	use 'folke/tokyonight.nvim'
+	use 'preservim/nerdtree'
 end)
